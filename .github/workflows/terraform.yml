@@ -26,22 +26,25 @@ jobs:
         with:
           terraform_version: ~> 1.0
 
-      - name: Install terraform-docs
-        run: |
-          # Install terraform-docs
-          curl -s https://raw.githubusercontent.com/terraform-docs/terraform-docs/v0.20.0/script/install.sh | bash -s -- v0.20.0
-          sudo mv terraform-docs /usr/local/bin/
-
-      - name: Run terraform-docs
-        run: |
-          # Run terraform-docs to update README.md
-          terraform-docs markdown table --output-file README.md ./
+      - name: Generate terraform docs and push changes
+        uses: terraform-docs/gh-actions@main
+        with:
+          # Specify the working directory if your Terraform files are not in the root
+          working-dir: .
+          # Specify the output file for the documentation
+          output-file: README.md
+          # Specify the output method (e.g., inject, replace)
+          output-method: inject
+          # Automatically commit and push changes made by terraform-docs
+          git-push: "true"
+          # Configure Git user for the commit made by this action
+          git-commit-message: "docs: Apply terraform-docs changes"
+          git-add: README.md # Ensure only README.md is added by this action
 
       - name: Run terraform fmt
         run: |
           # Run terraform fmt to check formatting
-          # The -check=true flag makes it exit with a non-zero code if files need formatting
-          terraform fmt -check=true -recursive
+          terraform fmt
 
       - name: Commit and Push changes
         run: |
@@ -50,8 +53,7 @@ jobs:
           git config user.email github-actions[bot]@users.noreply.github.com
 
           # Add the modified README.md and any formatted .tf files
-          git add README.md
           git add *.tf
 
           # Check if there are any changes to commit
-          git diff-index --quiet HEAD || (git commit -m "Apply terraform fmt and terraform-docs changes" && git push)
+          git diff --cached --exit-code || (git commit -m "style: Apply terraform fmt changes" && git push)
