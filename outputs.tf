@@ -39,9 +39,6 @@ output "user2_access_key" {
 output "user2_secret_key" {
   value       = aws_iam_access_key.user2_access_key.secret
   sensitive   = true
-<<<<<<< HEAD
-      ==
-  des   description = "Secret key for second user, if required"
-=====cription = "Secret key for second user, if required"
->>>>>>> 55a1cab3754e227d9d0f4f05608ee152195dede8
+description = "Secret key for second user, if required"
+
 }
