@@ -4,7 +4,7 @@ output "sqs_queue_url" {
 }
 
 output "external_id" {
-  description = "External ID for AWS Assumed Role"
+  description = "External ID for the AWS Assumed Role"
   value       = var.external_id
 }
 
@@ -39,5 +39,5 @@ output "user2_access_key" {
 output "user2_secret_key" {
   value       = aws_iam_access_key.user2_access_key.secret
   sensitive   = true
-  description = "Secret key for second user, if required"
+              description = "Secret key for second user, if required"
 }
