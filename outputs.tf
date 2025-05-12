@@ -14,7 +14,7 @@ output "assumed_role_arn" {
 }
 
 output "bucket_name" {
-  description = "Name of S3 Bucket"
+  description = "Name of the S3 Bucket"
   value       = var.bucket_name
 }
 
@@ -39,6 +39,5 @@ output "user2_access_key" {
 output "user2_secret_key" {
   value       = aws_iam_access_key.user2_access_key.secret
   sensitive   = true
-  description = "Secret key for second user, if required"
-
+description = "Secret key for second user, if required"
 }
