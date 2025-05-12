@@ -79,8 +79,8 @@ No modules.
 | <a name="output_bucket_name"></a> [bucket\_name](#output\_bucket\_name) | Name of S3 Bucket |
 | <a name="output_external_id"></a> [external\_id](#output\_external\_id) | External ID for AWS Assumed Role |
 | <a name="output_sqs_queue_url"></a> [sqs\_queue\_url](#output\_sqs\_queue\_url) | URL for the SQS Queue |
-| <a name="output_user1_access_key"></a> [user1\_access\_key](#output\_user1\_access\_key) | n/a |
-| <a name="output_user1_secret_key"></a> [user1\_secret\_key](#output\_user1\_secret\_key) | n/a |
-| <a name="output_user2_access_key"></a> [user2\_access\_key](#output\_user2\_access\_key) | n/a |
-| <a name="output_user2_secret_key"></a> [user2\_secret\_key](#output\_user2\_secret\_key) | n/a |
+| <a name="output_user1_access_key"></a> [user1\_access\_key](#output\_user1\_access\_key) | Access key for first user |
+| <a name="output_user1_secret_key"></a> [user1\_secret\_key](#output\_user1\_secret\_key) | Secret key for first user |
+| <a name="output_user2_access_key"></a> [user2\_access\_key](#output\_user2\_access\_key) | Access key for second user |
+| <a name="output_user2_secret_key"></a> [user2\_secret\_key](#output\_user2\_secret\_key) | Secret key for second user |
 <!-- END_TF_DOCS -->

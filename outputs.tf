@@ -19,21 +19,25 @@ output "bucket_name" {
 }
 
 output "user1_access_key" {
-  value     = aws_iam_access_key.user1_access_key.id
-  sensitive = true
+  value       = aws_iam_access_key.user1_access_key.id
+  sensitive   = true
+  description = "Access key for first user"
 }
 
 output "user1_secret_key" {
-  value     = aws_iam_access_key.user1_access_key.secret
-  sensitive = true
+  value       = aws_iam_access_key.user1_access_key.secret
+  sensitive   = true
+  description = "Secret key for first user"
 }
 
 output "user2_access_key" {
-  value     = aws_iam_access_key.user2_access_key.id
-  sensitive = true
+  value       = aws_iam_access_key.user2_access_key.id
+  sensitive   = true
+  description = "Access key for second user"
 }
 
 output "user2_secret_key" {
-  value     = aws_iam_access_key.user2_access_key.secret
-  sensitive = true
+  value       = aws_iam_access_key.user2_access_key.secret
+  sensitive   = true
+  description = "Secret key for second user"
 }
