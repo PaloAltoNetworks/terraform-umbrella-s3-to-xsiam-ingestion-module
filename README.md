@@ -1,8 +1,8 @@
-# Build AWS Infrastructure and Components for XSIAM Ingestion of Umbrella Logs
+# Build AWS Infrastructure for Cortex XSIAM/XDR Ingestion of Umbrella Logs
 
 This Terraform module builds all the AWS infrastructure/components required to facilitate the ingestion of Cisco Umbrella logs into Palo Alto Networks Cortex XSIAM and XDR.
 
-Umbrella can be configured to store logs in an S3 bucket, and Cortex XSIAM can be configured to ingest logs from an S3 bucket. This module creates an S3 bucket for this purpose, as well as creating the other components required such as an IAM role, SQS queue, etc
+Umbrella can be configured to store logs in an S3 bucket, and Cortex XSIAM/XDR can be configured to ingest logs from an S3 bucket. This module creates an S3 bucket for this purpose, as well as creating the other components required such as an IAM role, SQS queue, etc
 
 This module also creates two sets of user credentials, which can be provided to other tooling which requires access to the Umbrella logs.
 
