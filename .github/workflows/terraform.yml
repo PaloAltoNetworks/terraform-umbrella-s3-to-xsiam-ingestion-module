@@ -55,5 +55,11 @@ jobs:
           # Add the modified README.md and any formatted .tf files
           git add *.tf
 
-          # Check if there are any changes to commit
-          git diff --cached --exit-code || (git commit -m "style: Apply terraform fmt changes" && git push)
+          # Check if there are any staged changes using git status --porcelain
+          # If there are changes (output is not empty), commit and push
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git commit -m "style: Apply terraform fmt changes"
+            git push
+          else
+            echo "No terraform fmt changes to commit."
+          fi
