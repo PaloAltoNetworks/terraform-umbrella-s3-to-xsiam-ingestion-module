@@ -46,20 +46,9 @@ jobs:
           # Run terraform fmt to check formatting
           terraform fmt
 
-      - name: Commit and Push changes
-        run: |
-          # Configure Git user for the commit
-          git config user.name github-actions[bot]
-          git config user.email github-actions[bot]@users.noreply.github.com
-
-          # Add the modified README.md and any formatted .tf files
-          git add *.tf
-
-          # Check if there are any staged changes using git status --porcelain
-          # If there are changes (output is not empty), commit and push
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git commit -m "style: Apply terraform fmt changes"
-            git push
-          else
-            echo "No terraform fmt changes to commit."
-          fi
+      - name: Commit and Push fmt changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          files: |
+            *.tf
+          commit_message: "style: Apply terraform fmt changes"
