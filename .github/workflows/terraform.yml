@@ -1,0 +1,57 @@
+name: Terraform Format and Docs
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # Fetch all history to allow diffing against previous commits
+          fetch-depth: 0
+          # This token is required to push changes back to the repository
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ~> 1.0
+
+      - name: Install terraform-docs
+        run: |
+          # Install terraform-docs
+          curl -s https://raw.githubusercontent.com/terraform-docs/terraform-docs/v0.20.0/script/install.sh | bash -s -- v0.20.0
+          sudo mv terraform-docs /usr/local/bin/
+
+      - name: Run terraform-docs
+        run: |
+          # Run terraform-docs to update README.md
+          terraform-docs markdown table --output-file README.md ./
+
+      - name: Run terraform fmt
+        run: |
+          # Run terraform fmt to check formatting
+          # The -check=true flag makes it exit with a non-zero code if files need formatting
+          terraform fmt -check=true -recursive
+
+      - name: Commit and Push changes
+        run: |
+          # Configure Git user for the commit
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+
+          # Add the modified README.md and any formatted .tf files
+          git add README.md
+          git add *.tf
+
+          # Check if there are any changes to commit
+          git diff-index --quiet HEAD || (git commit -m "Apply terraform fmt and terraform-docs changes" && git push)
