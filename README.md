@@ -77,7 +77,7 @@ No modules.
 |------|-------------|
 | <a name="output_assumed_role_arn"></a> [assumed\_role\_arn](#output\_assumed\_role\_arn) | ARN for the AWS Assumed Role |
 | <a name="output_bucket_name"></a> [bucket\_name](#output\_bucket\_name) | Name of the S3 Bucket |
-| <a name="output_external_id"></a> [external\_id](#output\_external\_id) | External ID for AWS Assumed Role |
+| <a name="output_external_id"></a> [external\_id](#output\_external\_id) | External ID for the AWS Assumed Role |
 | <a name="output_sqs_queue_url"></a> [sqs\_queue\_url](#output\_sqs\_queue\_url) | URL for the SQS Queue |
 | <a name="output_user1_access_key"></a> [user1\_access\_key](#output\_user1\_access\_key) | Access key for first user, if required |
 | <a name="output_user1_secret_key"></a> [user1\_secret\_key](#output\_user1\_secret\_key) | Secret key for first user, if required |
