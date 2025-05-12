@@ -64,12 +64,12 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | A name used for the S3 bucket where Umbrella logs will be stored. | `string` | n/a | yes |
-| <a name="input_external_id"></a> [external\_id](#input\_external\_id) | The external ID used for IAM role trust relationship. | `string` | n/a | yes |
-| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | A unique project name, used for tagging and naming AWS resources. | `string` | n/a | yes |
-| <a name="input_region"></a> [region](#input\_region) | The AWS region in which resources will be deployed. | `string` | n/a | yes |
-| <a name="input_umbrella_aws_account_id"></a> [umbrella\_aws\_account\_id](#input\_umbrella\_aws\_account\_id) | The AWS account ID for Umbrella; the account used to write Umbrella logs to S3. | `string` | `"568526795995"` | no |
-| <a name="input_xsiam_aws_account_id"></a> [xsiam\_aws\_account\_id](#input\_xsiam\_aws\_account\_id) | The AWS account ID for XSIAM; the account used to read Umbrella logs from S3. | `string` | `"006742885340"` | no |
+| <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | A name used for the S3 bucket where Umbrella logs will be stored | `string` | n/a | yes |
+| <a name="input_external_id"></a> [external\_id](#input\_external\_id) | The external ID used for IAM role trust relationship | `string` | n/a | yes |
+| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | A unique project name, used for tagging and naming AWS resources | `string` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | The AWS region in which resources will be deployed | `string` | n/a | yes |
+| <a name="input_umbrella_aws_account_id"></a> [umbrella\_aws\_account\_id](#input\_umbrella\_aws\_account\_id) | The AWS account ID for Umbrella; the account used to write Umbrella logs to S3 | `string` | `"568526795995"` | no |
+| <a name="input_xsiam_aws_account_id"></a> [xsiam\_aws\_account\_id](#input\_xsiam\_aws\_account\_id) | The AWS account ID for XSIAM; the account used to read Umbrella logs from S3 | `string` | `"006742885340"` | no |
 
 ## Outputs
 
