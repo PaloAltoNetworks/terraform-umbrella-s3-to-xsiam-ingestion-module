@@ -49,6 +49,7 @@ jobs:
       - name: Commit and Push fmt changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
+          working-directory: .
           files: |
             *.tf
           commit_message: "style: Apply terraform fmt changes"
